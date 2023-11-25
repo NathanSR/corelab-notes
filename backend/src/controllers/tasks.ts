@@ -68,32 +68,3 @@ export const deleteTask = async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 };
-
-// export const getFavoriteTasks = async (req: Request, res: Response) => {
-//     try {
-//         const user = req.user as UserDocument;
-
-//         let query = { _user: user._id, isFavorite: true }
-//         const totalTasks = await Task.countDocuments(query)
-//         const favoriteTasks = await Task.find(query)
-
-//         res.json({ data: favoriteTasks, total: totalTasks });
-//     } catch (error) {
-//         res.status(500).json({ error: 'Erro interno do servidor' });
-//     }
-// };
-
-// export const getNonFavoriteTasks = async (req: Request, res: Response) => {
-//     try {
-//         const user = req.user as UserDocument;
-
-//         let query = { _user: user._id, isFavorite: false }
-//         const totalTasks = await Task.countDocuments(query)
-//         const favoriteTasks = await Task.find(query);
-
-//         res.json({ data: favoriteTasks, total: totalTasks });
-//     } catch (error) {
-//         res.status(500).json({ error: 'Erro interno do servidor' });
-//     }
-// };
-

@@ -1,0 +1,39 @@
+.Initial {
+    height: 100%;
+}
+
+.Initial>header {
+    background-color: white;
+    box-shadow: 0px 1px 7px 0px rgba(149, 149, 149, 0.25);
+    padding: .5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.Initial>main {
+    display: grid;
+    place-content: center;
+    height: 100%;
+    padding-inline: 2rem;
+    text-align: center;
+    gap: 1rem;
+}
+
+.Initial>main>.illustration {
+    height: 10rem;
+    margin: 0 auto;
+}
+
+.Initial>main>.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.Initial>main>.buttons>button {
+    width: 10rem;
+    padding: .5rem 1rem;
+}
