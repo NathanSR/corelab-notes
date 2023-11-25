@@ -19,8 +19,6 @@ export const registerUser = async (req: Request, res: Response) => {
         }
 
         const userDB = new User({ name, email, password });
-        await userDB.validate().catch(error => res.status(400).json({ error }))
-
         await userDB.save();
 
         res.status(201).json({ message: 'Usuário registrado com sucesso' });

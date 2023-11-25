@@ -7,14 +7,14 @@ export interface UserDocument extends Document {
     password: string;
 }
 
-const userSchema = new Schema<UserDocument>({
+const UserSchema = new Schema<UserDocument>({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true, },
     password: { type: String, required: true, select: false },
 });
 
 // Pré-processamento: hashear a senha antes de salvar no banco de dados
-userSchema.pre<UserDocument>(['save'], async function (next) {
+UserSchema.pre<UserDocument>(['save'], async function (next) {
     if (!this.isModified('password')) return next();
 
     try {
@@ -26,6 +26,6 @@ userSchema.pre<UserDocument>(['save'], async function (next) {
     }
 });
 
-const UserModel = mongoose.model<UserDocument>('User', userSchema);
+const UserModel = mongoose.model<UserDocument>('User', UserSchema);
 
 export default UserModel;

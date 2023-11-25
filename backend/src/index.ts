@@ -11,6 +11,7 @@ import passportConfig from './configs/passport';
 passportConfig(app)
 
 import authRoutes from './routes/auth.route';
+import taskRoutes from './routes/task.route';
 
 //Configurações básicas de segurança e comunicação
 app.use(bodyParser.json()); // Configuração do body-parser para analisar solicitações JSON
@@ -19,6 +20,7 @@ app.use(helmet()); // Configuração do helmet para segurança HTTP
 
 //Rotas
 app.use('/auth', authRoutes);
+app.use('/tasks', taskRoutes);
 
 const PORT = process.env.PORT || 4444;
 app.listen(PORT, () => console.log(`⚡️[server]: servidor está rodando em http://localhost:${PORT}`));

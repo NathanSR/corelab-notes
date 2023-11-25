@@ -23,6 +23,9 @@ Obs: antes de configurar o controlador de login, eu configurei o passport para p
 7º Adicionei os arquivos de rotas de '/auth' e conectei com o app do express. Lembrando que para a rota /auth/me, tive que botar um middleware de verificação se o usuário está autenticado.
 
 
+Após terminar de configurar as rotas de autenticação de usuário, comecei a trabalhar no model das tarefas.
+
+
 
 
 
