@@ -45,9 +45,11 @@ Frontend
 
 3º Criei a página inicial, cujo foco principal é apresentar os botões para as páginas de Registro e Login;
 
-4º Criei a página de Autenticação que inclui tanto o formulário de registro quanto de login; Para gerenciar os valores do formulários utilizei a biblioteca react-hook-form. Também, instalei a biblioteca react-icons e criei o componente Button para adicionar botões com icones mais facilmente. E instalei o axios para fazer consultas à API, e instalei e configurei a biblioteca react-toastify para criar alertas visuais customizaveis de respostas da API.
+4º Criei a página de Autenticação que inclui tanto o formulário de registro quanto de login; Para gerenciar os valores do formulários utilizei a biblioteca react-hook-form. Também, instalei a biblioteca react-icons e criei o componente Button para adicionar botões com icones mais facilmente. Instalei o axios para fazer consultas à API, e instalei e configurei a biblioteca react-toastify para criar alertas visuais customizaveis de respostas da API.
 
-5º Após terminado os formulários de registro e login. Comecei a trabalhar na página Home, que será a página de registro e manipulação de tarefas. Criei o componente PrivateRoute para impedir de o usuario acessar a home sem estar autenticado.
+5º Após terminado os formulários de registro e login. Comecei a trabalhar na página Home, que será a página de registro e manipulação de tarefas. Primeiramente comecei a configurar o acesso à rotas privadas. Criei o componente PrivateRoute para impedir de o usuario acessar a home sem estar autenticado. Criei também um context Global que é muito útil para guardar valores que podem ser acessados em qualquer parte da aplicação, como por exemplo o token de autenticação. Configurei para que toda vez que o usuário se autenticasse o token fosse salvo no context e no sessionStorage - o valor deve ficar salvo no context para servir como valor de estado global da aplicação, e ficou salvo também no sessionStorage para que caso a página sofra um refresh o usuário não precise informar as credenciais novamente!.
+
+6º
 
 
 

@@ -1,11 +1,12 @@
 // RegistrationForm.tsx
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './Register.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import axios from '../../services/axios';
 import { toast } from 'react-toastify';
+import { ContextGlobal } from '../../contexts/Global.context';
 
 type RegistrationFormData = {
     name: string;
@@ -16,6 +17,7 @@ type RegistrationFormData = {
 
 const RegisterForm: React.FC = () => {
     const navigate = useNavigate()
+    let { setToken } = useContext(ContextGlobal)
 
     const {
         register,
@@ -27,6 +29,7 @@ const RegisterForm: React.FC = () => {
         await axios.post("/auth/register", data)
             .then(resp => {
                 sessionStorage.setItem('token', resp.data.token);
+                setToken(resp.data.token)
                 navigate('/home')
             })
             .catch(error => toast.error(error.response.data.error || error.response))

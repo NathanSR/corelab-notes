@@ -1,11 +1,12 @@
 // LoginForm.tsx
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import axios from '../../services/axios';
 import { toast } from 'react-toastify';
+import { ContextGlobal } from '../../contexts/Global.context';
 
 type LoginFormData = {
     email: string;
@@ -14,6 +15,7 @@ type LoginFormData = {
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate()
+    let { setToken } = useContext(ContextGlobal)
 
     const {
         register,
@@ -25,6 +27,7 @@ const LoginForm: React.FC = () => {
         await axios.post("/auth/login", data)
             .then(resp => {
                 sessionStorage.setItem('token', resp.data.token);
+                setToken(resp.data.token)
                 navigate('/home')
             })
             .catch(error => toast.error(error.response.data.error || error.response))

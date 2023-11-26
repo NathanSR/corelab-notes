@@ -5,17 +5,21 @@ import Auth from './pages/Auth';
 import Home from './pages/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import PrivateRoute from './components/PrivateRoute';
+import { ContextGlobal, } from './contexts/Global.context';
+import { useContext } from 'react';
+import PrivateRoute from './components/PrivateRoute';
 
 export default function App() {
+    let { token } = useContext(ContextGlobal)
+
     return (
         <div id="App">
             <Router>
                 <Routes>
                     <Route path="/" element={<Initial />} />
                     <Route path="/auth/*" element={<Auth />} />
-                    {/* <PrivateRoute allow={token} redirect="/notFound" /> */}
-                    <Route path="/home/*" element={<Home />} />
+                    <Route path="/home/*" element={<PrivateRoute allow={!!token} redirect="/auth/login" children={<Home />} />} />
+
                 </Routes>
             </Router>
             <ToastContainer />
