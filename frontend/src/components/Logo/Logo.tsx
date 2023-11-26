@@ -6,7 +6,7 @@ export default function Logo() {
 
     return (
         <div className='Logo' onClick={() => navigate('/')}>
-            <img src='logo-corenotes.png' alt='coreNotes' />
+            <img src={process.env.PUBLIC_URL + '/logo-corenotes.png'} alt='coreNotes' />
             <span>CoreNotes</span>
         </div>
     )

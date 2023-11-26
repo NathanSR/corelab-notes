@@ -3,14 +3,20 @@ import User, { UserDocument } from '../models/user.model';
 import bcrypt from 'bcrypt';
 import jwt, { Secret } from 'jsonwebtoken';
 
+const createToken = (uid: any) => {
+    const secretKey: Secret = process.env.SECRET_KEY || 'secret';
+    return jwt.sign({ id: uid }, secretKey, { expiresIn: '1d', });
+}
+
 export const registerUser = async (req: Request, res: Response) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, confirmPassword } = req.body;
 
         try {
             if (!name) throw 'Nome de usuário deve ser informado';
             if (!email) throw 'Email deve ser informado';
             if (!password) throw 'Senha deve ser informada';
+            if (password !== confirmPassword) throw 'Senhas informadas não conferem';
 
             const existingUser = await User.exists({ email });
             if (existingUser) throw 'O usuário informado já está cadastrado';
@@ -21,7 +27,9 @@ export const registerUser = async (req: Request, res: Response) => {
         const userDB = new User({ name, email, password });
         await userDB.save();
 
-        res.status(201).json({ message: 'Usuário registrado com sucesso' });
+        const token = createToken(userDB._id)
+        res.json({ token })
+        
     } catch (error) {
         console.error('Erro ao registrar usuário:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
@@ -38,9 +46,7 @@ export const loginUser = async (req: Request, res: Response) => {
         const isPasswordCorrect = await bcrypt.compare(password, userDB.password)
         if (!isPasswordCorrect) return res.status(401).json({ error: 'Credenciais inválidas' });
 
-        const secretKey: Secret = process.env.SECRET_KEY || 'secret';
-        const token = jwt.sign({ id: userDB._id }, secretKey, { expiresIn: '1d', });
-
+        const token = createToken(userDB._id)
         res.json({ token })
 
     } catch (error) {

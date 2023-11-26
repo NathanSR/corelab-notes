@@ -1,0 +1,20 @@
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    padding: .7rem 1rem;
+    border-radius: .3rem;
+    border: 1px solid;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.Button:hover {
+    background-color: #aebccb;
+}
+
+.Button:active {
+    background-color: #8898a9;
+    scale: .9;
+}

@@ -45,6 +45,10 @@ Frontend
 
 3º Criei a página inicial, cujo foco principal é apresentar os botões para as páginas de Registro e Login;
 
+4º Criei a página de Autenticação que inclui tanto o formulário de registro quanto de login; Para gerenciar os valores do formulários utilizei a biblioteca react-hook-form. Também, instalei a biblioteca react-icons e criei o componente Button para adicionar botões com icones mais facilmente. E instalei o axios para fazer consultas à API, e instalei e configurei a biblioteca react-toastify para criar alertas visuais customizaveis de respostas da API.
+
+5º Após terminado os formulários de registro e login. Comecei a trabalhar na página Home, que será a página de registro e manipulação de tarefas. Criei o componente PrivateRoute para impedir de o usuario acessar a home sem estar autenticado.
+
 
 
 

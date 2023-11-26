@@ -3,6 +3,7 @@ const app: Express = express();
 
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config()
 
@@ -17,6 +18,7 @@ import taskRoutes from './routes/task.route';
 app.use(bodyParser.json()); // Configuração do body-parser para analisar solicitações JSON
 app.use(bodyParser.urlencoded({ extended: true })); // Configuração do body-parser para analisar solicitações URL-encoded
 app.use(helmet()); // Configuração do helmet para segurança HTTP
+app.use(cors())
 
 //Rotas
 app.use('/auth', authRoutes);

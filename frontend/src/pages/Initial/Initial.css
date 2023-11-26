@@ -10,6 +10,9 @@
     top: 0;
     width: 100%;
 }
+.Initial>header>.Logo {
+    margin-inline: auto;
+}
 
 .Initial>main {
     display: grid;
@@ -35,5 +38,4 @@
 
 .Initial>main>.buttons>button {
     width: 10rem;
-    padding: .5rem 1rem;
 }
