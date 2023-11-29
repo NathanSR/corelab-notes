@@ -19,7 +19,7 @@ export const registerTask = async (req: Request, res: Response) => {
 export const getTasks = async (req: Request, res: Response) => {
     try {
         const user = req.user as UserDocument;
-        const { isFavorite, color, title, description } = req.query;
+        const { isFavorite, color, title, description, page = 1, limit = 50 } = req.query;
 
         const query: any = { _user: user._id };
         if (isFavorite !== undefined) query.isFavorite = isFavorite === 'true';
@@ -27,7 +27,10 @@ export const getTasks = async (req: Request, res: Response) => {
         if (description !== undefined) query.description = { $regex: description, $options: 'i' };
         if (color !== undefined) query.color = color;
 
-        const tasksDB = await Task.find(query);
+        const tasksDB = await Task.find(query)
+            .sort({ isFavorite: -1, createdAt: -1 })
+            .skip((Number(page) - 1) * Number(limit))
+            .limit(Number(limit));
 
         res.json({ data: tasksDB });
     } catch (error) {

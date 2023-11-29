@@ -1,3 +1,5 @@
+Iniciei a criação do projeto FULLSTACK pelo backend fazendo uma boa modelagem dos dados para serem acessados pelo cliente!
+
 Backend
 
 1º Iniciei o npm na pasta backend e instalei as bibliotecas e seus tipos: express, typescript, helmet, body-parser, mongoose, ts-node, bcrypt, passport...
@@ -49,7 +51,13 @@ Frontend
 
 5º Após terminado os formulários de registro e login. Comecei a trabalhar na página Home, que será a página de registro e manipulação de tarefas. Primeiramente comecei a configurar o acesso à rotas privadas. Criei o componente PrivateRoute para impedir de o usuario acessar a home sem estar autenticado. Criei também um context Global que é muito útil para guardar valores que podem ser acessados em qualquer parte da aplicação, como por exemplo o token de autenticação. Configurei para que toda vez que o usuário se autenticasse o token fosse salvo no context e no sessionStorage - o valor deve ficar salvo no context para servir como valor de estado global da aplicação, e ficou salvo também no sessionStorage para que caso a página sofra um refresh o usuário não precise informar as credenciais novamente!.
 
-6º
+6º Após isso, comecei a implementar a página de gerenciamento de tarefas conforme o design mostrado no Figma; Comecei criando um esboço do cabeçalho com a logo, um search e botao de sair e o esboço onde ficará a lista de tarefas; Depois comecei a criar e estilizar o componente TaskCreator, que servirá para criar o formulário de cadastro, atualização e também o card visual da tarefa criada para ser apresentada na lista. Esse componente tem como parâmetro o campo method que define se o Card a ser redenrizado vai ser para registro(POST), Mostrar informações (GET), alterar (PUT). Quando o Card de tarefa for PUT, vai aparecer o botão para deletar. Enquanto for GET, o usuário não poderá atualizar os dados, somente vizualizar. Tive que implementar também para esse componente um menudrop para fazer o select de cores.
+
+7º Após finalizado toda a lógica e estilo do Componente Task, Comecei a implementar o Componente Search para fazer a filtragem dos dados conforme solicitado. 
+
+8º Todos objetivos foram atingidos e projeto frontend foi concluido!
+
+
 
 
 
