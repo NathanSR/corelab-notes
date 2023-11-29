@@ -3,14 +3,14 @@ import './Button.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: React.ReactNode;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ icon, children, className, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ icon, children, className, type = 'button', ...props }) => {
     return (
-        <button className={`Button ${className}`} {...props}>
-            {icon && <span className="Button-icon">{icon}</span>}
-            <span className='Button-children'>{children}</span>
+        <button className={`Button ${className}`} type={type} {...props}>
+            {icon}
+            {children}
         </button>
     );
 };

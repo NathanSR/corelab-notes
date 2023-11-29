@@ -8,6 +8,11 @@
     border: 1px solid;
     cursor: pointer;
     transition: 0.3s ease;
+    font-size: 1rem;
+}
+.Button svg{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
 }
 
 .Button:hover {
@@ -17,4 +22,9 @@
 .Button:active {
     background-color: #8898a9;
     scale: .9;
+}
+
+
+.Button.P{
+    padding: .3rem;
 }

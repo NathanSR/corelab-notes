@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
                 setToken(resp.data.token)
                 navigate('/home')
             })
-            .catch(error => toast.error(error.response.data.error || error.response))
+            .catch(error => toast.error(error?.response?.data?.error || error?.response || ""))
     };
 
     return (

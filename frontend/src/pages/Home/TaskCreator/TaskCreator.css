@@ -1,0 +1,153 @@
+.TaskCreator {
+    max-width: 500px;
+    width: 100%;
+}
+
+.TaskCreator.POST{
+    margin-inline: auto;
+}
+
+.TaskCreator.GET {
+    max-width: 300px;
+    cursor: pointer;
+}
+
+.TaskCreator.PUT {
+    max-width: 300px;
+}
+
+.TaskCreator svg {
+    font-size: 1.5rem;
+}
+
+.TaskCreator.PUT .bg-back {
+    transition: .3s ease;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.377);
+    backdrop-filter: blur(4px);
+}
+
+.TaskCreator>.content {
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    transition: scale .3s ease;
+}
+
+.TaskCreator.PUT>.content,
+.TaskCreator>.content:hover {
+    scale: 1.03;
+}
+
+.TaskCreator.PUT>.content {
+    z-index: 2;
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    scale: 0.95;
+}
+
+.TaskCreator>.content>header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.TaskCreator>.content>header>input {
+    border: none;
+    width: 100%;
+    padding: .5rem 0;
+    outline: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.TaskCreator>.content>header>input::placeholder {
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.TaskCreator>.content>header label {
+    cursor: pointer;
+}
+
+
+.TaskCreator>.content>main {
+    padding: 1rem;
+}
+
+.TaskCreator.PUT>.content>main textarea,
+.TaskCreator.GET>.content>main textarea {
+    min-height: 15rem;
+}
+
+.TaskCreator>.content>main>textarea {
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    resize: none;
+    height: auto;
+    width: 100%;
+    background-color: transparent;
+}
+
+.TaskCreator>.content>main>textarea::placeholder {
+    font-size: 1;
+}
+
+.TaskCreator>.content>footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem .5rem;
+}
+
+.TaskCreator>.content>footer>div {
+    display: flex;
+    gap: .5rem;
+}
+
+.TaskCreator>.content>footer button {
+    color: rgba(0, 0, 0, 0.692);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.Palette {
+    padding: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 19rem;
+    gap: .5rem;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: white;
+    position: fixed;
+}
+
+.Palette > .color {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.Palette > .color:hover {
+    border: 2px dashed;
+}
+
+.Palette > .color.selected {
+    border: 2px solid #333;
+    padding: .2rem;
+}

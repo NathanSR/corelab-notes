@@ -1,14 +1,17 @@
-// Esse context serve como uma variável global que pode ser acessada em qualquer parte do sistema
 import React, { useState, createContext, ReactNode } from 'react';
 
 interface ContextGlobalProps {
     token: string;
     setToken: React.Dispatch<React.SetStateAction<string>>;
+    // loading: boolean;
+    // setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ContextGlobalPropsDefault = {
     token: "",
-    setToken: function () { }
+    setToken: function () { },
+    // loading: false,
+    // setLoading: function () { }
 }
 
 export const ContextGlobal = createContext<ContextGlobalProps>(ContextGlobalPropsDefault);

@@ -19,7 +19,6 @@ export default function App() {
                     <Route path="/" element={<Initial />} />
                     <Route path="/auth/*" element={<Auth />} />
                     <Route path="/home/*" element={<PrivateRoute allow={!!token} redirect="/auth/login" children={<Home />} />} />
-
                 </Routes>
             </Router>
             <ToastContainer />
