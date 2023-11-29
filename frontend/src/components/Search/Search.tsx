@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import './Search.css'
 import { FaFilter } from 'react-icons/fa6'
-import { listColors } from '../../pages/Home/TaskCreator/TaskCreator.utils';
+import { listColors } from '../TaskCreator/TaskCreator.utils';
 import axios from '../../services/axios';
 import { toast } from 'react-toastify';
 
@@ -59,7 +59,7 @@ const Search: React.FC<SearchType> = ({ setItems }) => {
                 <div>
                     <label>
                         <select value={color} onChange={e => setColor(e.target.value)} style={{ backgroundColor: color }}>
-                            <option value="">---</option>
+                            <option value="" style={{ backgroundColor: "white" }}>---</option>
                             {listColors.map(item => <option key={item.color} style={{ backgroundColor: item.color }} value={item.color}></option>)}
                         </select>
                         cor

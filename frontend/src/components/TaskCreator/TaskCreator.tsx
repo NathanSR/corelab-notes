@@ -1,11 +1,11 @@
 import './TaskCreator.css'
 import { TbStar, TbStarFilled } from "react-icons/tb";
-import axios from '../../../services/axios';
+import axios from '../../services/axios';
 import { toast } from 'react-toastify';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { IoIosSave } from "react-icons/io";
 import Swal from 'sweetalert2';
-import Button from '../../../components/Button';
+import Button from '../Button';
 
 import { BiPencil } from "react-icons/bi";
 import { PiPaintBucket } from "react-icons/pi";

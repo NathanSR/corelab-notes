@@ -5,7 +5,7 @@ import './Home.css';
 import { toast } from 'react-toastify';
 import { ContextGlobal } from '../../contexts/Global.context';
 import { useContext } from 'react';
-import TaskCreator from './TaskCreator';
+import TaskCreator from '../../components/TaskCreator';
 import axios from '../../services/axios';
 import Button from '../../components/Button';
 import Search from '../../components/Search';
